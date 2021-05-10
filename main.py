@@ -62,9 +62,10 @@ import matplotlib.pyplot as plt
 
 # Zad 3
 # Wykres kołowy z wartościami % ukazującymi ilość urodzonych chłopców i dziewczynek w ostatnich 5 latach z datasetu.
+#
 # xlsx = pd.ExcelFile('datasets/imiona.xlsx')
 # df = pd.read_excel(xlsx, header=0)
-# grupa = df.groupby(['Plec'])['Liczba'].sum()
+# grupa = df.where(df['Rok'] > 2012).groupby(['Plec'])['Liczba'].sum()
 # wykres = grupa.plot.pie(subplots=True, autopct='%.2f %%', fontsize=20, figsize=(6, 6), legend=(0,0))
 #
 # plt.title('Ilość urodzonych chłopców i dziewczynek')
@@ -74,11 +75,52 @@ import matplotlib.pyplot as plt
 # Wyświetl na pomocą wykresu słupkowego ilość złożonych zamówień przez poszczególnych sprzedawców
 # (zbiór danych zamówienia.csv).
 
-df = pd.read_csv('datasets/zamowienia.csv', header=0, sep=';', decimal='.')
-print(df)
+# df = pd.read_csv('datasets/zamowienia.csv', header=0, sep=';', decimal='.')
+#
+# grupa = df.groupby(['Sprzedawca'])['idZamowienia'].sum()
+# wykres = grupa.plot.bar()
+# wykres.set_xlabel('Sprzedawca')
+# wykres.set_ylabel('Liczba zamówień')
+# plt.show()
 
-grupa = df.groupby(['Sprzedawca'])['idZamowienia'].sum()
-wykres = grupa.plot.bar()
-wykres.set_xlabel('Sprzedawca')
-wykres.set_ylabel('Liczba zamówień')
-plt.show()
+# plt.plot([1, 2, 3, 4])
+# plt.ylabel('Przyklad')
+# plt.show()
+
+# plt.plot([1, 2, 3, 4], [1, 4, 9, 16], 'ro-')
+# plt.axis([0, 6, 0, 20])
+# plt.show()
+
+# plt.plot([1, 2, 3, 4], [1, 4, 9, 16], 'r')
+# plt.plot([1, 2, 3, 4], [1, 4, 9, 16], 'o')
+#
+# plt.axis([0, 6, 0, 20])
+# plt.show()
+
+# t = np.arange(0., 5., 0.2)
+# plt.plot(t, t, 'r--', t, t**2, 'bs', t, t**3, 'g^')
+# plt.show()
+
+# x = np.linspace(0, 2, 100)
+
+# plt.plot(x, x, label='postać liniowa')
+# plt.plot(x, x**2, label='postać kwadratowa')
+# plt.plot(x, x**3, label='postać sześcienna')
+#
+# plt.xlabel('etykieta x')
+# plt.ylabel('etykieta y')
+#
+# plt.title('Przykladowe wykresy')
+# plt.legend()
+# plt.show()
+
+# x = np.arange(0, 10, 0.1)
+# s = np.sin(x)
+#
+# plt.plot(x, s, label='sin(x)')
+# plt.xlabel('x')
+# plt.ylabel('sin(x)')
+#
+# plt.title('Wykres sin(x)')
+# plt.legend()
+# plt.show()
