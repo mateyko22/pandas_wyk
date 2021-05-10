@@ -40,3 +40,45 @@ import matplotlib.pyplot as plt
 # plt.show()
 
 
+# Zad 1
+# xlsx = pd.ExcelFile('datasets/imiona.xlsx')
+# df = pd.read_excel(xlsx, header=0)
+# grupa = df.groupby(['Rok'])['Liczba dzieci'].sum()
+# grupa.plot()
+# plt.title('Suma urodzonych dzieci w danym roku')
+# plt.legend(loc='lower right')
+# plt.show()
+
+
+# Zad 2
+# xlsx = pd.ExcelFile('datasets/imiona.xlsx')
+# df = pd.read_excel(xlsx, header=0)
+# grupa = df.groupby(['Plec'])['Liczba'].sum()
+#
+# wykres = grupa.plot.bar()
+# wykres.set_ylabel('Liczba dzieci')
+# wykres.set_xlabel('Płeć')
+# plt.show()
+
+# Zad 3
+# Wykres kołowy z wartościami % ukazującymi ilość urodzonych chłopców i dziewczynek w ostatnich 5 latach z datasetu.
+# xlsx = pd.ExcelFile('datasets/imiona.xlsx')
+# df = pd.read_excel(xlsx, header=0)
+# grupa = df.groupby(['Plec'])['Liczba'].sum()
+# wykres = grupa.plot.pie(subplots=True, autopct='%.2f %%', fontsize=20, figsize=(6, 6), legend=(0,0))
+#
+# plt.title('Ilość urodzonych chłopców i dziewczynek')
+# plt.show()
+
+# Zad 4
+# Wyświetl na pomocą wykresu słupkowego ilość złożonych zamówień przez poszczególnych sprzedawców
+# (zbiór danych zamówienia.csv).
+
+df = pd.read_csv('datasets/zamowienia.csv', header=0, sep=';', decimal='.')
+print(df)
+
+grupa = df.groupby(['Sprzedawca'])['idZamowienia'].sum()
+wykres = grupa.plot.bar()
+wykres.set_xlabel('Sprzedawca')
+wykres.set_ylabel('Liczba zamówień')
+plt.show()
